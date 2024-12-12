@@ -176,9 +176,9 @@ BOOL CBasePoint::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags, UINT nMyFlags)
 	return res;
 }
 
+
 ////////////////////////////////////////
 // Реализация методов класса CSquare
-
 CSquare::CSquare(int x, int y, WORD s): CBasePoint(x, y, s)
 {
 	m_wSize=s;
@@ -211,8 +211,81 @@ void CSquare::GetRegion(CRgn &Rgn)
 	Rgn.CreateRectRgn(x-s, y-s, x+s, y+s);
 }
 
+////////////////////////////////////////
+// Реализация методов класса Круг в квадрате (ЛАБА)
+CircleInSquare::CircleInSquare(int x, int y, WORD s) : CBasePoint(x, y, s)
+{
+	m_wSize = s;
+}
+CircleInSquare::CircleInSquare() : CBasePoint()
+{
+	m_wSize = 40;
+}
+
+IMPLEMENT_SERIAL(CircleInSquare, CObject, 1)
+void CircleInSquare::Serialize(CArchive& ar)
+{
+	CBasePoint::Serialize(ar);
+}
+void CircleInSquare::Show(CDC* pDC)
+{
+	int s = m_wSize;
+	// Устанавливаем перео и кисть
+	PrepareDC(pDC);
+	// Рисуем круг и квадрат 
+	
+	pDC->Rectangle(x - s, y - s, x + s, y + s);
+	pDC->Ellipse(x - s + 400, y - s + 400, x + s - 400, y + s - 400);
+	// Восстанавливаем контекст
+	RestoreDC(pDC);
+}
+
+void CircleInSquare::GetRegion(CRgn& Rgn)
+{
+	int s = m_wSize;
+	Rgn.CreateEllipticRgn(x - s, y - s, x + s, y + s);
+}
+
 
 ////////////////////////////////////////
+
+// Реализация методов класса Dasha
+Dasha::Dasha(int x, int y, WORD s) : CBasePoint(x, y, s)
+{
+	m_wSize = s;
+}
+Dasha::Dasha() : CBasePoint()
+{
+	m_wSize = 40;
+}
+
+IMPLEMENT_SERIAL(Dasha, CObject, 1)
+void Dasha::Serialize(CArchive& ar)
+{
+	CBasePoint::Serialize(ar);
+}
+void Dasha::Show(CDC* pDC)
+{
+	int s = m_wSize;
+	// Устанавливаем перео и кисть
+	PrepareDC(pDC);
+	// Рисуем круг и квадрат 
+
+	pDC->Rectangle(x - s, y - s, x + s, y + s);
+	pDC->Ellipse(x - s + 400, y - s + 400, x + s - 400, y + s - 400);
+	// Восстанавливаем контекст
+	RestoreDC(pDC);
+}
+
+void Dasha::GetRegion(CRgn& Rgn)
+{
+	int s = m_wSize;
+	Rgn.CreateRectRgn(x - s, y - s, x + s, y + s);
+}
+
+
+////////////////////////////////////////
+
 // Реализация методов класса CPolygon
 
 CPolygon::CPolygon(): CBasePoint()

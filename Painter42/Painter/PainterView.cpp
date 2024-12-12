@@ -48,6 +48,7 @@ BEGIN_MESSAGE_MAP(CPainterView, CScrollView)
 	ON_COMMAND(ID_FILE_PRINT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CView::OnFilePrintPreview)
+	ON_COMMAND(ID_EDIT_ADDSHAPE_MYSHAPE, OnEditAddshapeMyShape)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -63,6 +64,7 @@ CPainterView::CPainterView()
 	m_hcurSquare=AfxGetApp()->LoadCursor(IDC_CURSOR_SQUARE);
 	m_hcurPolygon=AfxGetApp()->LoadCursor(IDC_CURSOR_POLYGON);
 	m_hcurSurface=AfxGetApp()->LoadCursor(IDC_CURSOR_SURFACE);
+	m_hcurMyShape=AfxGetApp()->LoadCursor(IDC_CURSOR_CIRCLE);
 }
 
 CPainterView::~CPainterView()
@@ -215,6 +217,7 @@ void CPainterView::OnLButtonUp(UINT nFlags, CPoint point)
 	case OP_CIRCLE:
 	case OP_SQUARE:
 	case OP_SURFACE:
+	case OP_CircleInSquare:
 		AddShape(m_CurOper, m_FirstPoint, LogPoint);
 		// Указываем, что окно надо перерисовать
 		Invalidate();
@@ -260,6 +263,7 @@ void CPainterView::OnMouseMove(UINT nFlags, CPoint point)
 		case OP_CIRCLE:
 		case OP_SQUARE:
 		case OP_SURFACE:
+		case OP_CircleInSquare:
 			if(nFlags==MK_LBUTTON) DrawMoveLine(m_FirstPoint, m_CurMovePoint);
 			m_CurMovePoint=LogPoint;
 			if(nFlags==MK_LBUTTON) DrawMoveLine(m_FirstPoint, m_CurMovePoint);
@@ -359,6 +363,10 @@ void CPainterView::AddShape(int shape, CPoint first_point, CPoint second_point)
 	size=(int) floor( sqrt((double)(second_point.x-first_point.x)*(second_point.x-first_point.x)+
 				(second_point.y-first_point.y)*(second_point.y-first_point.y)) +0.5);
 
+	auto X = first_point.x;
+	auto Y = first_point.y;
+	auto S = size / 2;
+
 	switch(shape)
 	{
 	case OP_LINE:
@@ -368,6 +376,18 @@ void CPainterView::AddShape(int shape, CPoint first_point, CPoint second_point)
 		pShape=new CBasePoint(second_point.x, second_point.y, 100);
 		// Светло-серая заливка
 		pShape->SetBrush(RGB(200,200,200));
+	break;
+
+	case OP_CircleInSquare:
+		pShape = new CircleInSquare(X, Y, size); 
+		pShape->SetPen(RGB(255,0,0), 100);
+		pDoc->m_ShapesList.AddTail(pShape);
+		// Последняя фигура становится активной
+		pDoc->m_pSelShape = pShape;
+		// Указываем, что документ изменен
+		pDoc->SetModifiedFlag();
+		pShape = NULL;
+		
 	break;
 	case OP_CIRCLE:
 		// Создаем объект - круг
@@ -410,6 +430,12 @@ void CPainterView::OnEditAddshapePoint()
 void CPainterView::OnEditAddshapeCircle() 
 {
 	m_CurOper=OP_CIRCLE;
+	::SetClassLong(GetSafeHwnd(), GCL_HCURSOR, (LONG)m_hcurCircle);
+}
+
+void CPainterView::OnEditAddshapeMyShape()
+{
+	m_CurOper = OP_CircleInSquare;
 	::SetClassLong(GetSafeHwnd(), GCL_HCURSOR, (LONG)m_hcurCircle);
 }
 

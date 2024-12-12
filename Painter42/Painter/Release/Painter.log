@@ -1,45 +1,13 @@
-﻿Build started 10.12.2024 15:49:17.
-     1>Project "D:\Downloads\Painter42 (исходник)\Painter42\Painter\Painter.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Release\Painter.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         Deleting file "Release\Painter.pch".
-         d:\Soft\Visual Studio 2010\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\Painter.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         d:\Soft\Visual Studio 2010\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\Painter.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Global.cpp MainFrm.cpp PagePropertyDlg.cpp Painter.cpp PainterDoc.cpp PainterView.cpp Savebmp.cpp Shapes.cpp
-         Global.cpp
-         MainFrm.cpp
-         PagePropertyDlg.cpp
-         Painter.cpp
-     1>Painter.cpp(58): warning C4996: 'CWinApp::Enable3dControls': CWinApp::Enable3dControls is no longer needed. You should remove this call.
-                 d:\Soft\Visual Studio 2010\VC\atlmfc\include\afxwin.h(5344) : see declaration of 'CWinApp::Enable3dControls'
-         PainterDoc.cpp
-         PainterView.cpp
-         Savebmp.cpp
-         Shapes.cpp
-       ResourceCompile:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0409" /IRelease\ /nologo /fo"Release\Painter.res" Painter.rc 
-       Link:
-         d:\Soft\Visual Studio 2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Downloads\Painter42 (исходник)\Painter42\Release\Painter.exe" /INCREMENTAL:NO /NOLOGO /MANIFEST /ManifestFile:"Release\Painter.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Downloads\Painter42 (исходник)\Painter42\Release\Painter.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Downloads\Painter42 (исходник)\Painter42\Release\Painter.lib" /MACHINE:X86 Release\Painter.res
-         Release\Global.obj
-         Release\MainFrm.obj
-         Release\PagePropertyDlg.obj
-         Release\Painter.obj
-         Release\PainterDoc.obj
-         Release\PainterView.obj
-         Release\Savebmp.obj
-         Release\Shapes.obj
-         Release\stdafx.obj
-         Generating code
-         Finished generating code
-         Painter.vcxproj -> D:\Downloads\Painter42 (исходник)\Painter42\Release\Painter.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Downloads\Painter42 (исходник)\Painter42\Release\Painter.exe;#1" /manifest Release\Painter.exe.intermediate.manifest "d:\Soft\Visual Studio 2010\VC\Include\Manifest\dpiaware.manifest"
-       FinalizeBuildStatus:
-         Deleting file "Release\Painter.unsuccessfulbuild".
-         Touching "Release\Painter.lastbuildstate".
-     1>Done Building Project "D:\Downloads\Painter42 (исходник)\Painter42\Painter\Painter.vcxproj" (build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:08.38
+﻿  Shapes.cpp
+C:\Users\kiril\OneDrive\Рабочий стол\Painter42\Painter42\Painter\Shapes.cpp(350,1): warning C4838: Преобразование из "int" в "UINT" требует сужающего преобразования.
+  (компиляция исходного файла "/Shapes.cpp")
+  
+C:\Users\kiril\OneDrive\Рабочий стол\Painter42\Painter42\Painter\Shapes.cpp(427,1): warning C4838: Преобразование из "int" в "UINT" требует сужающего преобразования.
+  (компиляция исходного файла "/Shapes.cpp")
+  
+  Создание кода
+  1 of 534 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Painter.vcxproj -> C:\Users\kiril\OneDrive\Рабочий стол\Painter42\Painter42\Release\Painter.exe

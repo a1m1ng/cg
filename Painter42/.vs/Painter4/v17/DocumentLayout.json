@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E2140E4F-F47C-40AA-9894-CFCE4A04471B}|Painter\\Painter.vcxproj|C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\Painter\\Shapes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E2140E4F-F47C-40AA-9894-CFCE4A04471B}|Painter\\Painter.vcxproj|solutionrelative:Painter\\Shapes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2140E4F-F47C-40AA-9894-CFCE4A04471B}|Painter\\Painter.vcxproj|C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\Painter\\PainterView.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E2140E4F-F47C-40AA-9894-CFCE4A04471B}|Painter\\Painter.vcxproj|solutionrelative:Painter\\PainterView.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2140E4F-F47C-40AA-9894-CFCE4A04471B}|Painter\\Painter.vcxproj|C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\Painter\\PainterView.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E2140E4F-F47C-40AA-9894-CFCE4A04471B}|Painter\\Painter.vcxproj|solutionrelative:Painter\\PainterView.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Shapes.cpp",
+              "DocumentMoniker": "C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\Painter\\Shapes.cpp",
+              "RelativeDocumentMoniker": "Painter\\Shapes.cpp",
+              "ToolTip": "C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\Painter\\Shapes.cpp",
+              "RelativeToolTip": "Painter\\Shapes.cpp",
+              "ViewState": "AgIAANoAAAAAAAAAAAAcwPQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-26T16:36:34.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PainterView.h",
+              "DocumentMoniker": "C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\Painter\\PainterView.h",
+              "RelativeDocumentMoniker": "Painter\\PainterView.h",
+              "ToolTip": "C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\Painter\\PainterView.h",
+              "RelativeToolTip": "Painter\\PainterView.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-26T17:01:52.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PainterView.cpp",
+              "DocumentMoniker": "C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\Painter\\PainterView.cpp",
+              "RelativeDocumentMoniker": "Painter\\PainterView.cpp",
+              "ToolTip": "C:\\Users\\kiril\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\Painter42\\Painter42\\Painter\\PainterView.cpp",
+              "RelativeToolTip": "Painter\\PainterView.cpp",
+              "ViewState": "AgIAAHUBAAAAAAAAAAAAwH4BAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-26T17:06:32.476Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
