@@ -68,48 +68,24 @@ class CSquare: public CBasePoint
 };
 
 ////////////////////////////////////////////////////
-//класс Круг в квадрате (ЛАБА)
-class CircleInSquare: public CBasePoint
+// Лаба 1 (Прямоугольник с закруглёнными краями - 4 вариант)
+class RectangleWithRoundedEdges: public CBasePoint
 {
-	DECLARE_SERIAL(CircleInSquare)
+	DECLARE_SERIAL(RectangleWithRoundedEdges)
 protected:
 	// Метод сериализации
 	void Serialize(CArchive& ar);
 public:
 	// Конструкторы
-	CircleInSquare(int x, int y, WORD s);
-	CircleInSquare();
-	~CircleInSquare() {};
+	RectangleWithRoundedEdges(int x, int y, WORD s);
+	RectangleWithRoundedEdges();
+	~RectangleWithRoundedEdges() {};
 	//Методы
 		// Отображает фигуру на экране
 	void Show(CDC* pDC);
 	// Сообщает область захвата
 	void GetRegion(CRgn& Rgn);
-
 };
-////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////
-//класс Даше
-class Dasha : public CBasePoint
-{
-	DECLARE_SERIAL(Dasha)
-protected:
-	// Метод сериализации
-	void Serialize(CArchive& ar);
-public:
-	// Конструкторы
-	Dasha(int x, int y, WORD s);
-	Dasha();
-	~Dasha() {};
-	//Методы
-		// Отображает фигуру на экране
-	void Show(CDC* pDC);
-	// Сообщает область захвата
-	void GetRegion(CRgn& Rgn);
-
-};
-////////////////////////////////////////////////////
 
 //класс полигон
 class CPolygon: public CBasePoint

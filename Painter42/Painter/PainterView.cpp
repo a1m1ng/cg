@@ -49,6 +49,7 @@ BEGIN_MESSAGE_MAP(CPainterView, CScrollView)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, CView::OnFilePrintPreview)
 	ON_COMMAND(ID_EDIT_ADDSHAPE_MYSHAPE, OnEditAddshapeMyShape)
+
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -64,7 +65,7 @@ CPainterView::CPainterView()
 	m_hcurSquare=AfxGetApp()->LoadCursor(IDC_CURSOR_SQUARE);
 	m_hcurPolygon=AfxGetApp()->LoadCursor(IDC_CURSOR_POLYGON);
 	m_hcurSurface=AfxGetApp()->LoadCursor(IDC_CURSOR_SURFACE);
-	m_hcurMyShape=AfxGetApp()->LoadCursor(IDC_CURSOR_CIRCLE);
+	m_hcurMyShape=AfxGetApp()->LoadCursor(IDC_CURSOR_SQUARE);
 }
 
 CPainterView::~CPainterView()
@@ -217,7 +218,7 @@ void CPainterView::OnLButtonUp(UINT nFlags, CPoint point)
 	case OP_CIRCLE:
 	case OP_SQUARE:
 	case OP_SURFACE:
-	case OP_CircleInSquare:
+	case OP_RectangleWithRoundedEdges:
 		AddShape(m_CurOper, m_FirstPoint, LogPoint);
 		// Указываем, что окно надо перерисовать
 		Invalidate();
@@ -263,7 +264,7 @@ void CPainterView::OnMouseMove(UINT nFlags, CPoint point)
 		case OP_CIRCLE:
 		case OP_SQUARE:
 		case OP_SURFACE:
-		case OP_CircleInSquare:
+		case OP_RectangleWithRoundedEdges:
 			if(nFlags==MK_LBUTTON) DrawMoveLine(m_FirstPoint, m_CurMovePoint);
 			m_CurMovePoint=LogPoint;
 			if(nFlags==MK_LBUTTON) DrawMoveLine(m_FirstPoint, m_CurMovePoint);
@@ -377,10 +378,13 @@ void CPainterView::AddShape(int shape, CPoint first_point, CPoint second_point)
 		// Светло-серая заливка
 		pShape->SetBrush(RGB(200,200,200));
 	break;
-
-	case OP_CircleInSquare:
-		pShape = new CircleInSquare(X, Y, size); 
-		pShape->SetPen(RGB(255,0,0), 100);
+	case OP_RectangleWithRoundedEdges:
+		// Создаем объект - прямоугольник с закруглёнными краями
+		pShape = new RectangleWithRoundedEdges(X, Y, size);
+		// Голубая линия шириной 1 мм
+		pShape->SetPen(RGB(0,255,255), 100);
+		// Голубая заливка
+		pShape->SetBrush(RGB(0, 255, 255));
 		pDoc->m_ShapesList.AddTail(pShape);
 		// Последняя фигура становится активной
 		pDoc->m_pSelShape = pShape;
@@ -435,8 +439,8 @@ void CPainterView::OnEditAddshapeCircle()
 
 void CPainterView::OnEditAddshapeMyShape()
 {
-	m_CurOper = OP_CircleInSquare;
-	::SetClassLong(GetSafeHwnd(), GCL_HCURSOR, (LONG)m_hcurCircle);
+	m_CurOper = OP_RectangleWithRoundedEdges;
+	::SetClassLong(GetSafeHwnd(), GCL_HCURSOR, (LONG)m_hcurSquare);
 }
 
 void CPainterView::OnEditAddshapeSquare() 

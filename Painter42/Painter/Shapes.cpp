@@ -176,9 +176,9 @@ BOOL CBasePoint::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags, UINT nMyFlags)
 	return res;
 }
 
-
 ////////////////////////////////////////
 // Реализация методов класса CSquare
+
 CSquare::CSquare(int x, int y, WORD s): CBasePoint(x, y, s)
 {
 	m_wSize=s;
@@ -203,7 +203,7 @@ void CSquare::Show(CDC* pDC)
 	pDC->Rectangle(x-s, y-s, x+s, y+s);
 	// Восстанавливаем контекст
 	RestoreDC(pDC);
-} 
+}
 
 void CSquare::GetRegion(CRgn &Rgn)
 {
@@ -211,36 +211,39 @@ void CSquare::GetRegion(CRgn &Rgn)
 	Rgn.CreateRectRgn(x-s, y-s, x+s, y+s);
 }
 
-////////////////////////////////////////
-// Реализация методов класса Круг в квадрате (ЛАБА)
-CircleInSquare::CircleInSquare(int x, int y, WORD s) : CBasePoint(x, y, s)
+// Лаба
+RectangleWithRoundedEdges::RectangleWithRoundedEdges(int x, int y, WORD s) : CBasePoint(x, y, s)
 {
 	m_wSize = s;
 }
-CircleInSquare::CircleInSquare() : CBasePoint()
+RectangleWithRoundedEdges::RectangleWithRoundedEdges() : CBasePoint()
 {
 	m_wSize = 40;
 }
-
-IMPLEMENT_SERIAL(CircleInSquare, CObject, 1)
-void CircleInSquare::Serialize(CArchive& ar)
+IMPLEMENT_SERIAL(RectangleWithRoundedEdges, CObject, 1)
+void RectangleWithRoundedEdges::Serialize(CArchive& ar)
 {
 	CBasePoint::Serialize(ar);
 }
-void CircleInSquare::Show(CDC* pDC)
+void RectangleWithRoundedEdges::Show(CDC* pDC)
 {
-	int s = m_wSize;
+	int s=m_wSize/2;
 	// Устанавливаем перео и кисть
 	PrepareDC(pDC);
-	// Рисуем круг и квадрат 
-	
-	pDC->Rectangle(x - s, y - s, x + s, y + s);
-	pDC->Ellipse(x - s + 400, y - s + 400, x + s - 400, y + s - 400);
+	// Центрируем прямоугольник относительно точки (x, y)
+    CRect rect(x - s/2, y - s, x + s/2, y + s);
+
+    // Радиус скругления
+    int cornerRadiusX = s/4; // Радиус по оси X
+    int cornerRadiusY = s/4; // Радиус по оси Y
+
+    // Нарисуем скругленный прямоугольник
+    pDC->RoundRect(rect, CPoint(cornerRadiusX, cornerRadiusY));
 	// Восстанавливаем контекст
 	RestoreDC(pDC);
-}
+} 
 
-void CircleInSquare::GetRegion(CRgn& Rgn)
+void RectangleWithRoundedEdges::GetRegion(CRgn& Rgn)
 {
 	int s = m_wSize;
 	Rgn.CreateEllipticRgn(x - s, y - s, x + s, y + s);
@@ -248,44 +251,6 @@ void CircleInSquare::GetRegion(CRgn& Rgn)
 
 
 ////////////////////////////////////////
-
-// Реализация методов класса Dasha
-Dasha::Dasha(int x, int y, WORD s) : CBasePoint(x, y, s)
-{
-	m_wSize = s;
-}
-Dasha::Dasha() : CBasePoint()
-{
-	m_wSize = 40;
-}
-
-IMPLEMENT_SERIAL(Dasha, CObject, 1)
-void Dasha::Serialize(CArchive& ar)
-{
-	CBasePoint::Serialize(ar);
-}
-void Dasha::Show(CDC* pDC)
-{
-	int s = m_wSize;
-	// Устанавливаем перео и кисть
-	PrepareDC(pDC);
-	// Рисуем круг и квадрат 
-
-	pDC->Rectangle(x - s, y - s, x + s, y + s);
-	pDC->Ellipse(x - s + 400, y - s + 400, x + s - 400, y + s - 400);
-	// Восстанавливаем контекст
-	RestoreDC(pDC);
-}
-
-void Dasha::GetRegion(CRgn& Rgn)
-{
-	int s = m_wSize;
-	Rgn.CreateRectRgn(x - s, y - s, x + s, y + s);
-}
-
-
-////////////////////////////////////////
-
 // Реализация методов класса CPolygon
 
 CPolygon::CPolygon(): CBasePoint()

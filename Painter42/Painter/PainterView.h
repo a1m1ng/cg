@@ -16,7 +16,7 @@
 #define OP_CIRCLE	3
 #define OP_SQUARE	4
 #define OP_SURFACE	5
-#define OP_CircleInSquare  6
+#define OP_RectangleWithRoundedEdges  6
 
 #define OP_SELECT	10
 
@@ -39,6 +39,7 @@ public:
 	//  урсор "по умолчанию"
 	HCURSOR m_hcurDefault;	// используем в операции выбора
 	HCURSOR m_hcurMyShape;
+
 	// Ќачальна€ и текуща€ точки операции 
 	CPoint	m_FirstPoint, m_CurMovePoint;
 	// »ндикатор нажати€ клавиш Shift, Ctrl
